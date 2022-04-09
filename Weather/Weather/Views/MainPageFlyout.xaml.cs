@@ -30,18 +30,18 @@ namespace Weather.Views
         {
             public ObservableCollection<MainPageFlyoutMenuItem> MenuItems { get; set; }
 
-           
-            public MainPageFlyoutViewModel()
+            public MainPageFlyoutViewModel() 
             {
-                void ButtonRefreshClicked(object sender, System.EventArgs e)
-                {
-                    ((Button)sender).Text = "Refresh";
-                }
+
+                //void ButtonRefreshClicked(object sender, System.EventArgs e) //Denna har jag lagt till 
+                //{
+                //    ((Button)sender).Text = "Refresh";
+                //}
 
                 MenuItems = new ObservableCollection<MainPageFlyoutMenuItem>(new[]
                 {
                     new MainPageFlyoutMenuItem { Id = 0, Title = "About Weather", TargetType=typeof(AboutPage) },
-                    new MainPageFlyoutMenuItem { Id = 1, Title = "Debug Console", TargetType=typeof(ConsolePage) },
+                    new MainPageFlyoutMenuItem { Id = 1, Title = "Debug Console", TargetType=typeof(ConsolePage) },   
                     new MainPageFlyoutMenuItem { Id = 2, Title = "Uppsala", TargetType=typeof(ForecastPage) },
                     new MainPageFlyoutMenuItem { Id = 3, Title = "Stockholm", TargetType=typeof(ForecastPage) },
                     new MainPageFlyoutMenuItem { Id = 4, Title = "New York", TargetType=typeof(ForecastPage) },

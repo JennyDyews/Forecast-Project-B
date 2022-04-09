@@ -8,6 +8,7 @@
     <ContentPage.Content>
 
         <StackLayout BackgroundColor="White">
+            <Button Text="Refresh"/>
 
             <ListView x:Name= "WeatherListView">
                 <ListView.ItemTemplate>
@@ -19,7 +20,6 @@
                                 Padding="5"
                                 Margin="0,0,0,5">
 
-
                                 <Label Text="{Binding DateTime, StringFormat='{0:dddd, dd MMMM yyyy}'}"
 
                                 TextColor="Black"
@@ -27,10 +27,10 @@
                                       VerticalOptions="Center"
                                       Margin="20,0"/>
                                 <Label Text="{Binding DateTime, StringFormat='{0:h:mm tt}'}"></Label>
+                               
+                                <Image x:Name="Image" Source=" http://openweathermap.org/img/wn/10d@2x.png"/>
 
-              
                                 <Label Text="{Binding .}"/>
-
 
                             </StackLayout>
 

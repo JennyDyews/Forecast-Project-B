@@ -4,6 +4,7 @@
              x:Class="Weather.Views.MainPageFlyout"
              IconImageSource="hamburger.png"
              Title="Flyout">
+    
     <StackLayout>
         <ListView x:Name="MenuItemsListView"
               SeparatorVisibility="None"
@@ -35,7 +36,7 @@
                         <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">
                             <Label VerticalOptions="FillAndExpand" 
                     VerticalTextAlignment="Center" 
-                    Text="{Binding Title}" 
+                    Text="{Binding Title}"
                     FontSize="30"/>
                         </StackLayout>
                     </ViewCell>

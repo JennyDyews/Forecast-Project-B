@@ -12,7 +12,7 @@ using Weather.Models;
 
 namespace Weather.Services
 {
-    //You replace this class witth your own Service from Project Part A. Jag har gjort det .
+    //You replace this class witth your own Service from Project Part A. 
     public class OpenWeatherService
     {
 
