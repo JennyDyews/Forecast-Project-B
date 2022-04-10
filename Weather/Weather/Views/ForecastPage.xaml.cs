@@ -38,7 +38,6 @@ namespace Weather.Views
 
             //This is making the first load of data
             MainThread.BeginInvokeOnMainThread(async () => { await LoadForecast(); });
-
         }
 
         private async Task LoadForecast()
@@ -46,15 +45,31 @@ namespace Weather.Views
             //Heare you load the forecast 
             await Task.Run(() =>
             {
-
                 Task<Forecast> t1 = service.GetForecastAsync(Title);
                 Device.BeginInvokeOnMainThread(() =>
                 {
-                    t1.Result.Items.ForEach(x => x.Icon = $"http://openweathermap.org/img/wn/{x.Icon} @2x.png");
+                    t1.Result.Items.ForEach(x => x.Icon = $"http://openweathermap.org/img/wn/{x.Icon}@2x.png");
                     WeatherListView.ItemsSource = t1.Result.Items;
+                    //t1.Result.Items.ForEach(x => x.Icon = $"https://www.flaticon.com/free-icon/weather_1555512{x.Icon}");
 
                 });
             });
         }
+        private async void refresh(object sender, EventArgs args)
+        {
+            await Task.Run(() =>
+            {
+                Task<Forecast> t1 = service.GetForecastAsync(Title);
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    t1.Result.Items.ForEach(x => x.Icon = $"http://openweathermap.org/img/wn/{x.Icon}@2x.png");
+                    WeatherListView.ItemsSource = t1.Result.Items;
+                    //t1.Result.Items.ForEach(x => x.Icon = $"https://www.flaticon.com/free-icon/weather_1555512{x.Icon}");
+
+                });
+            });
+        }
+
     }
 }
+

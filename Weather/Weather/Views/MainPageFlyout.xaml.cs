@@ -33,11 +33,6 @@ namespace Weather.Views
             public MainPageFlyoutViewModel() 
             {
 
-                //void ButtonRefreshClicked(object sender, System.EventArgs e) //Denna har jag lagt till 
-                //{
-                //    ((Button)sender).Text = "Refresh";
-                //}
-
                 MenuItems = new ObservableCollection<MainPageFlyoutMenuItem>(new[]
                 {
                     new MainPageFlyoutMenuItem { Id = 0, Title = "About Weather", TargetType=typeof(AboutPage) },
