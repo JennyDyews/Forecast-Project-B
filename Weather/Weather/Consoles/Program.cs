@@ -16,6 +16,7 @@ namespace Weather.Consoles
 {
     class Program
     {
+
         #region used by the Console
         Views.ConsolePage theConsole;
         StringBuilder theConsoleString;
@@ -105,7 +106,7 @@ namespace Weather.Consoles
                     Console.WriteLine(group.Key.Date.ToShortDateString());
                     foreach (var item in group)
                     {
-                        Console.WriteLine($"   - {item.DateTime.ToShortTimeString()}: {item.Description}, teperature: {item.Temperature} degC, wind: {item.WindSpeed} m/s");
+                        Console.WriteLine($"  - {item.DateTime.ToShortTimeString()}: {item.Description}, temperature: {item.Temperature} degC, wind: {item.WindSpeed} m/s");
                     }
                 }
             }
@@ -126,7 +127,7 @@ namespace Weather.Consoles
                     Console.WriteLine(group.Key.Date.ToShortDateString());
                     foreach (var item in group)
                     {
-                        Console.WriteLine($"   - {item.DateTime.ToShortTimeString()}: {item.Description}, teperature: {item.Temperature} degC, wind: {item.WindSpeed} m/s");
+                        Console.WriteLine($"  - {item.DateTime.ToShortTimeString()}: {item.Description}, teperature: {item.Temperature} degC, wind: {item.WindSpeed} m/s");
                     }
                 }
             }

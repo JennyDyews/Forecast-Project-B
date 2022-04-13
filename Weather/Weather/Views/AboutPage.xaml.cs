@@ -13,6 +13,7 @@ namespace Weather.Views
         public AboutPage()
         {
             InitializeComponent();
+            
         }
     }
 }

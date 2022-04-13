@@ -1,65 +1,111 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:Weather.Views"
              x:Class="Weather.Views.ForecastPage">
 
 
-    <ContentPage.Content>
 
-        <StackLayout BackgroundColor="White">
-            <Button Text="Refresh"
+    <StackLayout BackgroundColor="LightBlue">
+        <Button Text="Refresh"
                     Clicked="refresh"/>
-            
-            <ListView x:Name= "WeatherListView">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Vertical"
-                                BackgroundColor="LightBlue"
-                               
-                                Padding="5"
-                                Margin="0,0,0,5">
 
-                                <Label Text="{Binding DateTime, StringFormat='{0:dddd, dd MMMM yyyy}'}"
+        <ListView x:Name= "WeatherListView"
+                      IsGroupingEnabled="True"
+                      HasUnevenRows="True">
 
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell 
+                            Height="40">
+
+                        <StackLayout
+                            HorizontalOptions="FillAndExpand"
+                            HeightRequest="40"
+                            BackgroundColor="LightGray"
+                            Padding="5"
+                            Orientation="Horizontal">
+
+                            <Label
+
+                                FontSize="20"
                                 TextColor="Black"
-                                      FontSize="Medium"
-                                      VerticalOptions="Center"
-                                      Margin="20,0"/>
-                                <Label Text="{Binding DateTime, StringFormat='{0:h:mm tt}'}"></Label>
+                                VerticalOptions="Center"
+                                FontAttributes="Bold"
+                                Text="{Binding Key, StringFormat='{0:dddd, dd MMMM yyyy}'}"/>
 
-                                <Label Text="{Binding .}"/>
+                        </StackLayout>
+
+                    </ViewCell>
+                </DataTemplate>
+
+            </ListView.GroupHeaderTemplate>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical"
+                                            BackgroundColor="LightBlue"
+                                             Padding="5"
+                                             Margin="0,0,0,5">
 
 
-                                <StackLayout Grid.Column="3" 
+
+
+                            <Label Text="{Binding DateTime, StringFormat='{0:h:mm tt}'}"></Label>
+
+                            <Label Text="{Binding .}"/>
+
+
+                            <StackLayout Grid.Column="3" 
                                              Orientation="Horizontal" 
                                              Margin="20,0" 
                                              HorizontalOptions="Center" 
                                              VerticalOptions="Center">
 
-                                    <Image Source="{Binding Icon}" 
-                                           VerticalOptions="CenterAndExpand" 
-                                           HorizontalOptions="CenterAndExpand"
-                                           />
-                                </StackLayout>
-                                
-                                
-
+                               
                             </StackLayout>
-                        </ViewCell>
-                        
-                    </DataTemplate>
-                    
-                </ListView.ItemTemplate>
-                
-            </ListView>
-            
-        </StackLayout>
+                            <Frame BackgroundColor="#2197C7" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="450" HeightRequest="200" CornerRadius="10" Margin="20,10,20,10">
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
 
-    </ContentPage.Content>
-    
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0"  Text="{Binding DateTime, StringFormat='{0:h:mm tt}'}" FontSize="15" TextColor="#FFF"/>
+                                    <Label Grid.Row="1" Grid.Column="0"  Text="{Binding Temperature, StringFormat='{0:N0}°'}" FontSize="52" FontAttributes="Bold" TextColor="#FFF"/>
+                                    <Label Grid.Row="2" Grid.Column="1"  Text="{Binding WindSpeed, StringFormat='{0:N0}m/s'}" FontSize="15" TextColor="#FFF"/>
+                                    <Label Grid.Row="2" Grid.Column="0"  Text="wind" FontSize="15" TextColor="#FFF"/>
+                                    <Label Grid.Row="3" Grid.Column="0"  Text="{Binding Description}" FontSize="15" TextColor="#FFF"/>
+                                    <Image Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="4" WidthRequest="175" HeightRequest="175" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Source="{Binding Icon}" />
+                                </Grid>
+
+                            </Frame>
+
+
+
+                        </StackLayout>
+                    </ViewCell>
+
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+
+
+        </ListView>
+
+    </StackLayout>
+
+
 </ContentPage>
-
 
 
 

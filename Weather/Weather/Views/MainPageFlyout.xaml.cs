@@ -25,7 +25,6 @@ namespace Weather.Views
             ListView = MenuItemsListView;
 
         }
-
         class MainPageFlyoutViewModel
         {
             public ObservableCollection<MainPageFlyoutMenuItem> MenuItems { get; set; }
@@ -45,7 +44,10 @@ namespace Weather.Views
                     new MainPageFlyoutMenuItem { Id = 7, Title = "Bangkok", TargetType=typeof(ForecastPage) },
                     new MainPageFlyoutMenuItem { Id = 8, Title = "Paris", TargetType=typeof(ForecastPage) },
                     new MainPageFlyoutMenuItem { Id = 9, Title = "Norrköping", TargetType=typeof(ForecastPage) },
+
                 });
+                
+                
             }
         }
     }
